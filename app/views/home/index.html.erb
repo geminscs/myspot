@@ -35,7 +35,7 @@
             <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 
             </li>
-            <li><a href="register.html">SIGH UP</a></li>
+            <li><%= link_to "Sign Up", new_user_path  %></li>
           </ul>
         </div>
       </div>
@@ -112,45 +112,15 @@
   </h1>
   <hr/>
   <!-- Three columns of text below the carousel -->
-  <div class="row">
-    <div class="col-md-7">
-      <h2>Article 1 Title</h2>
-      <p>sssss</p>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" data-src="holder.js/250x250/auto" alt="Generic placeholder image">
-    </div>
-  </div>
+  <% @articles.each do |article|  %>
+      <div class="row">
+        <div class="col-md-7">
+          <h2><%= article.title %></h2>
+          <p><%= article.content%></p>
+        </div>
 
-  <div class="row">
-    <div class="col-md-7">
-      <h2>Article 2 Title</h2>
-      <p>sssss</p>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" data-src="holder.js/250x250/auto" alt="Generic placeholder image">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-7">
-      <h2>Article 3 Title</h2>
-      <p>sssss</p>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" data-src="holder.js/250x250/auto" alt="Generic placeholder image">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-7">
-      <h2>Article 4 Title</h2>
-      <p>sssss</p>
-    </div>
-    <div class="col-md-5">
-      <img class="featurette-image img-responsive center-block" data-src="holder.js/250x250/auto" alt="Generic placeholder image">
-    </div>
-  </div>
+      </div>
+  <% end %>
 
 
 
