@@ -8,4 +8,5 @@
 
 Article.delete_all
 Article.create(title: "Sample Article 1", content: "This is the content of sample article 1 ", user_id: 1)
-Article.create(title: "Sample Article 2", content: "This is the content of sample article 2 ", user_id: 2)
+Article.create(title: "Sample Article 2", content: "This is the content of sample article 1 ", user_id: 1)
+Article.create(title: "Sample Article 3", content: "This is the content of sample article 2 ", user_id: 2)

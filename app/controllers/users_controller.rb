@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @articles = Article.where(user_id: @user.id)
   end
 
   # GET /users/new
@@ -69,6 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :password_digest, :country, :city, :phone, :email)
+      params.require(:user).permit(:user_name, :password, :password_confirmation, :password_digest, :country, :city, :phone, :email)
     end
 end

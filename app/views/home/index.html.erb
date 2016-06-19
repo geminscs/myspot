@@ -32,10 +32,13 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-
-            </li>
-            <li><%= link_to "Sign Up", new_user_path  %></li>
+            <% if session[:user_id] %>
+              <li><%= link_to "MyPage", user_url(session[:user_id]) %></li>
+              <li><%= link_to "Logout", logout_path, method: :delete%></li>
+            <% else %>
+              <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+              <li><%= link_to "Sign Up", new_user_path  %></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -48,9 +51,9 @@
   <div class="modal-dialog">
     <div class="loginmodal-container">
       <h1>Login to Your Account</h1><br>
-      <form>
-        <input type="text" name="user" placeholder="Username">
-        <input type="password" name="pass" placeholder="Password">
+      <form action="login" method="post">
+        <input type="text" name="user_name" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
         <input type="submit" name="login" class="login loginmodal-submit" value="Login">
       </form>
 
