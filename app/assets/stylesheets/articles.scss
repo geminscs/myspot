@@ -1,3 +1,35 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#article_container{
+  padding-top: 80px;
+}
+
+#blog{
+  width: 80%;
+  float: right;
+}
+
+#user{
+  width: 19%;
+  float: left;
+  font-size: 18px;
+}
+
+#blog-main {
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#blog-post-meta {
+  padding-top: 10px;
+  font-size: 14px;
+  color: #999;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+#blog-comment{
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}

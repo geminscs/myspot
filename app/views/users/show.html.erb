@@ -1,44 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User name:</strong>
-  <%= @user.user_name %>
-</p>
+<div class="container" id="article_container">
+<div id="user">
+  <h3><%= @user.user_name %></h3>
+  Country: <%= @user.country %><br>
+  City: <%= @user.city %>
+  <div>
+    Articles:<br>
+    <% @user.articles.each do |a| %>
+        <%= link_to a.title, article_url(a.id) %><br>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @user.country %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<% @articles.each do |article|  %>
-    <div class="row">
-      <div class="col-md-7">
-        <h2><%= article.title %></h2>
-        <p><%= article.content%></p>
-      </div>
-
+<div id="blog">
+<% @user.articles.each do |article|  %>
+    <div>
+      <h2><%= link_to article.title, article %></h2>
+      <p id="content"><%= truncate article.content, length:400%></p>
     </div>
-<% end %>
 
+<% end %>
+</div>
+
+<% if session[:user_id] == @user.id %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<% end %>
+</div>
