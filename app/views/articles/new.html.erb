@@ -1,5 +1,41 @@
-<h1>New Article</h1>
+<div class="container" id="new_article_container">
+  <script>
+    var map ;
+    var marker;
+    $(document).ready(function(){
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 35, lng: 135},
+        zoom: 8
+      });
+      marker = new google.maps.Marker({
+        map: map,
+        position: new google.maps.LatLng(35,135),
+        title: 'Hello World!',
+        draggable: true
+      });
 
-<%= render 'form' %>
+      $("button").click(function () {
+        alert(marker.position);
+      })
 
-<%= link_to 'Back', articles_path %>
+      $('#new_article').submit(function() {
+        // DO STUFF
+        $("#lat").val(marker.position.lat());
+        $("#lng").val(marker.position.lng());
+        return true; // return false to cancel form action
+      });
+
+    });
+  </script>
+  <h1>New Article</h1>
+
+  <div id="map" style="width:100%;height:380px;"></div>
+  <button>lsl</button>
+  <%= render 'form' %>
+
+
+  <%= link_to 'Back', articles_path %>
+
+</div>
+
+

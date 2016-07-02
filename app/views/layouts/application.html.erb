@@ -33,8 +33,16 @@
   <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCui7XIimgU_Q8OpKGNRX_eNAj0K3AGqa0"></script>
   <!-- Custom styles for this template -->
+
 </head>
 <body>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("button").click(function(){
+      $("#hidden").val(123);
+    });
+  });
+</script>
 <div class="navbar-wrapper">
   <div class="container">
 
@@ -66,7 +74,24 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+            <li>
+              <form action="/search" method="get">
+                <div id="custom-search-input">
+                  <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Search" name="keyword"/>
+                    <input type="hidden" name="hidden" id="hidden">
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                  </div>
+                </div>
+              </form>
+            </li>
           </ul>
+
+
 
           <ul class="nav navbar-nav navbar-right">
             <% if session[:user_id] %>

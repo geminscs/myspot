@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root to: 'home#index', as: 'home'
   resources :articles
 
+  controller :home do
+    get 'search' => :search, as: :search
+  end
+
   controller :session do
     post 'login' => :create, as: :login
     delete 'logout' => :destroy, as: :logout
