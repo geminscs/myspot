@@ -31,7 +31,7 @@
 <div id="blog-main">
   <div id="map" style="width:100%;height:380px;"></div>
   <br>
-  <%= @article.content %>
+  <%= sanitize @article.content %>
 </div>
 
   <hr style="border-top: 1px solid #aaaaaa"/>
