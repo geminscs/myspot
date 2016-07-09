@@ -1,4 +1,19 @@
+<script>
+  $(document).ready(function(){
+    <% @articles.each do |article|  %>
+    var map = new google.maps.Map(document.getElementById('map_<%= article.id %>'), {
+      center: {lat: <%= article.lat %>, lng: <%= article.lng %>},
+      zoom: 4
+    });
+    var marker = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(<%= article.lat %>,<%= article.lng %>),
+      title: 'Hello World!'
+    });
+    <% end %>
 
+  });
+</script>
 
 <!-- Carousel
 ================================================== -->
@@ -51,13 +66,19 @@
   </h1>
   <hr/>
   <!-- Three columns of text below the carousel -->
+  <div>
   <% @articles.each do |article|  %>
-      <div>
-          <h2><%= link_to article.title, article %></h2>
-          <p id="content"><%= truncate article.content, length:400%></p>
+      <div style="height: 200px;">
+        <div class="article">
+            <h2 style="margin-top: 5px"><%= link_to article.title, article %></h2>
+            <p id="content"><%= truncate article.content, length:400%></p>
+        </div>
+        <div id="map_<%= article.id%>" class="map">
+          nothing
+        </div>
       </div>
   <% end %>
-
+  </div>
 
 
   <!-- /END THE FEATURETTES -->

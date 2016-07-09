@@ -37,10 +37,50 @@
 </head>
 <body>
 <script type="text/javascript">
+  function lineFunction(obj) {
+    $("#search").val(obj.innerHTML);
+    $("#hint").empty();
+  }
+
   $(document).ready(function(){
-    $("button").click(function(){
-      $("#hidden").val(123);
+    $("#search").keyup(function () {
+      if($("#search").val()) {
+        $.ajax(
+            {
+              type: 'get',
+              url: "/search_hint?keyword=" + $("#search").val(),
+              success: function (hints) {
+                if (hints.length > 0) {
+                  var layer;
+                  layer = "<table>";
+                  for (var i = 0; i < hints.length; i++) {
+                    layer += "<tr><td class='line' onclick='lineFunction(this)'>" + hints[i].title + "</td></tr>";
+                  }
+                  layer += "</table>";
+                  $("#hint").empty();
+                  $("#hint").append(layer);
+                }
+                else {
+                  $("#hint").empty();
+                }
+              },
+              error: function () {
+                alert('fail');
+              }
+            }
+        );
+      }
+      else{
+        $("#hint").empty();
+      }
     });
+
+    $("#search").focusout(function () {
+
+    })
+
+
+
   });
 </script>
 <div class="navbar-wrapper">
@@ -75,16 +115,19 @@
               </ul>
             </li>
             <li>
-              <form action="/search" method="get">
+              <form action="/search" method="get" autocomplete="off">
                 <div id="custom-search-input">
                   <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="Search" name="keyword"/>
-                    <input type="hidden" name="hidden" id="hidden">
+                    <input type="text" class="form-control input-lg" placeholder="Search" name="keyword" id="search"/>
+                    <div id="hint">
+
+                    </div>
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="submit">
                             <i class="glyphicon glyphicon-search"></i>
                         </button>
                     </span>
+
                   </div>
                 </div>
               </form>

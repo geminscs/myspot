@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   controller :home do
     get 'search' => :search, as: :search
+    get 'search_hint' => :search_hint, as: :search_hint
   end
 
   controller :session do

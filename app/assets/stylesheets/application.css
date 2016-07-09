@@ -45,9 +45,13 @@ h6, .h6 {
     border: 0;
     box-shadow: none;
     height: 30px;
+    font-size: 12px;
 }
 
 #custom-search-input button{
+    position: absolute;
+    top: 1px;
+    right: 1px;
     margin: 2px 0 0 0;
     background: none;
     box-shadow: none;
@@ -65,4 +69,27 @@ h6, .h6 {
 
 #custom-search-input .glyphicon-search{
     font-size: 23px;
+}
+
+#hint {
+    position: relative;
+    top: 7px;
+    right: 4px;
+    background: white;
+    width: 80%;
+}
+
+#hint table{
+    width: 100%;
+    cursor: pointer;
+}
+.line{
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 12px;
+
+}
+
+.line:hover{
+    background-color: #357ae8;
 }
