@@ -17,7 +17,7 @@
 <% @user.articles.each do |article|  %>
     <div>
       <h2><%= link_to article.title, article %></h2>
-      <p id="content"><%= truncate(sanitize(article.content), length:400)%></p>
+      <p id="content"><%= sanitize(article.content.truncate(400))%></p>
     </div>
 
 <% end %>
