@@ -12,8 +12,7 @@ class ArticlesController < ApplicationController
   def show
     @comments = @article.comments
     @comment = @article.comments.build
-    @lat = 51.508742
-    @lng = -0.120850
+    #@article.content = markdown(@article.content)
   end
 
   # GET /articles/new

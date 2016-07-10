@@ -2,6 +2,7 @@
 <script>
   var map ;
   var marker;
+
   $(document).ready(function(){
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: <%= @article.lat %>, lng: <%= @article.lng %>},
@@ -12,6 +13,8 @@
       position: new google.maps.LatLng(<%= @article.lat %>,<%= @article.lng %>),
       title: 'Hello World!'
     });
+    //alert($("#article_content").html());
+    //$("#article_content").html(marked($("#article_content").html()));
   });
 </script>
 <div class="container" id="article_container">
@@ -31,7 +34,9 @@
 <div id="blog-main">
   <div id="map" style="width:100%;height:380px;"></div>
   <br>
-  <%= sanitize @article.content %>
+  <div id="article_content">
+    <%= markdown @article.content %>
+  </div>
 </div>
 
   <hr style="border-top: 1px solid #aaaaaa"/>
