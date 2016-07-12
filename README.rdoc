@@ -10,3 +10,5 @@ Functions until now:
 2. New blogs, popular blogs, user homepage.
 
 3. Google map shows where you travel to.
+
+4. Support markdown input and search hint.
