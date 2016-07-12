@@ -14,9 +14,6 @@
         draggable: true
       });
 
-      $("button").click(function () {
-        alert(marker.position);
-      })
 
       $('#new_article').submit(function() {
         // DO STUFF
@@ -41,25 +38,33 @@
           bar: true
         },
         string: {
-          togglePreview: '预览',
-          toggleEdit: '编辑',
-          toggleFullscreen: '全屏'
+          togglePreview: 'Preview',
+          toggleEdit: 'Edit',
+          toggleFullscreen: 'FullScreen'
         },
         autogrow: {
-          minHeight: 200
+          minHeight: 400
         }
       }
       var editor = new EpicEditor(opts);
       editor.load();
+
+      editor.on("preview", function () {
+        $("#epiceditor").attr("style", "background:#ccc");
+      })
+
+      editor.on("edit", function () {
+        $("#epiceditor").attr("style", "background:white");
+      })
 
     });
   </script>
   <h1>New Article</h1>
 
   <div id="map" style="width:100%;height:380px;"></div>
-  <button>Coordinate</button>
+  <br><br>
   <%= render 'form' %>
-  <%= link_to 'Back', articles_path %>
+  <%= link_to 'Back', user_url(session[:user_id]), class:"back_link" %>
 
 </div>
 

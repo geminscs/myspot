@@ -9,6 +9,18 @@ html, body, iframe, div {
   right:10px;
 }
 
+#epiceditor{
+    border: solid #ccc 1px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 4px;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+
 #epiceditor-utilbar button {
   display:block;
   float:left;

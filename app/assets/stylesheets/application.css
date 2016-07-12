@@ -17,6 +17,7 @@
 body {
     font-family: Georgia, "Times New Roman", Times, serif;
     color: #555;
+    padding-top: 51px;
 }
 h1, .h1,
 h2, .h2,
@@ -28,6 +29,22 @@ h6, .h6 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
     color: #333;
+}
+
+a:hover{
+    background-color: white;
+}
+
+.edit_link, .edit_link:visited{
+    color: #4d90fe;
+}
+
+.delete_link, .delete_link:visited{
+    color: red;
+}
+
+.back_link, .back_link:visited{
+    color: #5a5a5a;
 }
 
 #custom-search-input{
@@ -76,13 +93,22 @@ h6, .h6 {
     top: 7px;
     right: 4px;
     background: white;
-    width: 80%;
+    width: 81%;
+    border: solid 1px #ccc;
+    border-radius: 4px;
 }
 
 #hint table{
     width: 100%;
     cursor: pointer;
 }
+
+#hint table tr{
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #ccc;
+}
+
 .line{
     padding: 10px;
     padding-left: 20px;
@@ -92,4 +118,10 @@ h6, .h6 {
 
 .line:hover{
     background-color: #357ae8;
+}
+
+#footer{
+    margin-left: 275px;
+    margin-right: 275px;
+    padding: 15px;
 }

@@ -70,14 +70,16 @@
   <% end %>
 <% end %>
 <% if @article.user_id == session[:user_id] %>
-<%= link_to 'Edit', edit_article_path(@article) %>|
+<%= link_to 'Edit', edit_article_path(@article), class:"edit_link"%> |
+<%= link_to'Delete', article_url(@article), method: :delete, class:"delete_link",data: {confirm: "Are you sure?"}%> |
 <% end %>
-<%= link_to 'Back', home_url %>
+<%= link_to 'Back', home_url, class:"back_link" %>
 </div>
 </div>
 
 <div id="user">
   <h3><%= link_to @article.user.user_name, user_url(@article.user_id) %></h3>
+  <hr style="border-top: 1px solid #aaaaaa"/>
   Country: <%= @article.user.country %><br>
   City: <%= @article.user.city %>
   <div>
@@ -86,5 +88,8 @@
       <%= link_to a.title, article_url(a.id) %><br>
     <% end %>
   </div>
+  <% if session[:user_id] == @article.user_id %>
+      <%= link_to 'Edit', edit_user_path(@article.user_id), class:"edit_link" %>
+  <% end %>
 </div>
 </div>
